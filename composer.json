@@ -1,0 +1,11 @@
+{
+  "name": "new/old",
+  "require": {},
+  "autoload":
+  {
+    "psr-4":
+    {
+      "Old\\" : "application/"
+    }
+  }
+}
