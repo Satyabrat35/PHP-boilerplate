@@ -1,7 +1,6 @@
 $(function() {
     var demoHeaderBox;
 
-    // simple demo to show create something via javascript on the page
     if ($('#javascript-header-demo-box').length !== 0) {
     	demoHeaderBox = $('#javascript-header-demo-box');
     	demoHeaderBox
@@ -16,7 +15,7 @@ $(function() {
         $('#javascript-ajax-button').on('click', function(){
 
             // "url" is defined in views/_templates/footer.php
-            console.log(url);
+            // console.log(url);
             $.ajax(url + "SongController/ajaxGetStatus")
                 .done(function(result) {
                     // this will be executed if the ajax-call was successful
@@ -31,5 +30,22 @@ $(function() {
                 });
         });
     }
+    $('#add_song').on('submit', function(e){
+        e.preventDefault();
+        var artist = $('#artist').val();
+        var track = $('#track').val();
+        var link = $('#link').val();
+        $.ajax({
+            type: 'POST',
+            url: '../application/Controller/SongsController.php/addSong',
+            data: {artist: artist, track: track, link: link},
+            success: function(response) {
+                alert(response);
+            },
+            error: function(qXHR, textStatus, errorThrown) {
+                alert(textStatus, errorThrown);
+            }
+        });
+    });
 
 });

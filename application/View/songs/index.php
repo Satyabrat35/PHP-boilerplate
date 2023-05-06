@@ -4,13 +4,13 @@
     <!-- add song form -->
     <div class="box">
         <h3>Add a song</h3>
-        <form action="<?php echo URL; ?>songs/addsong" method="POST">
+        <form name="add_song" action="" method="POST" id="add_song">
             <label>Artist</label>
-            <input type="text" name="artist" value="" required />
+            <input type="text" name="artist" id="artist" value="" required />
             <label>Track</label>
-            <input type="text" name="track" value="" required />
+            <input type="text" name="track" id="track" value="" required />
             <label>Link</label>
-            <input type="text" name="link" value="" />
+            <input type="text" name="link" id="link" value="" />
             <input type="submit" name="submit_add_song" value="Submit" />
         </form>
     </div>
@@ -20,9 +20,9 @@
         <h3>Amount of songs (via AJAX)</h3>
         <div id="javascript-ajax-result-box"></div>
         <div>
-            <button id="javascript-ajax-button">Click here to get the amount of songs via Ajax </button>
+            <button id="javascript-ajax-button">Click here to get the total num of songs </button>
         </div>
-        <h3>List of songs (data from model)</h3>
+        <h3>List of songs</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>

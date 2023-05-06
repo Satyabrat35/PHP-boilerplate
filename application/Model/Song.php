@@ -13,7 +13,7 @@ class Song extends Model
         return $query->fetchAll();
     }
 
-    public function addSong($artist, $track, $link)
+    public function addSongs($artist, $track, $link)
     {
         $statement = "INSERT INTO song (artist, track, link) VALUES (:artist, :track, :link)";
         $query = $this->db->prepare($statement);
@@ -22,7 +22,7 @@ class Song extends Model
         $query->execute($parameters);
     }
 
-    public function getSong($song_id)
+    public function getSongs($song_id)
     {
         $statement = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";
         $query = $this->db->prepare($statement);
@@ -33,7 +33,7 @@ class Song extends Model
         return $query->fetch();
     }
 
-    public function updateSong($artist, $track, $link, $song_id)
+    public function updateSongs($artist, $track, $link, $song_id)
     {
         $statement = "UPDATE song SET artist = :artist, track = :track, link = :link WHERE id = :song_id";
         $query = $this->db->prepare($statement);

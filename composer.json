@@ -1,6 +1,13 @@
 {
   "name": "new/old",
-  "require": {},
+  "require": {
+    "php": ">=7.0.0",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-mbstring": "*",
+    "ext-json": "*",
+    "ext-dom": "*"
+  },
   "autoload":
   {
     "psr-4":

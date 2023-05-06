@@ -2,7 +2,8 @@
 namespace Old\Controller;
 use Old\Model\Song;
 
-class SongsController {
+class SongsController
+{
     public function index()
     {
         $song = new Song();
@@ -16,12 +17,15 @@ class SongsController {
 
     public function addSong()
     {
-        if(isset($_POST['add_song']))
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $song = new Song();
-            if(isset($_POST["artist"], $_POST["track"],  $_POST["link"]))
+            $artist = trim($_POST['artist']);
+            $track = trim($_POST['track']);
+            $link = trim($_POST['link']);
+            if(!empty($artist) && !empty($track))
             {
-                $song->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
+                $song->addSongs($artist, $track, $link);
             }
         }
         header('location: '. URL . 'songs/index'); // change URL
@@ -32,7 +36,7 @@ class SongsController {
         if(isset($id))
         {
             $song = new Song();
-            $song->deleteSong($id);
+            $song->deleteSongs($id);
         }
         header('location: ' . URL . 'songs/index');
     }
@@ -43,7 +47,7 @@ class SongsController {
             $song = new Song();
             if (isset($_POST["artist"], $_POST["track"],  $_POST["link"], $_POST['song_id']))
             {
-                $song->updateSong($_POST["artist"], $_POST["track"],  $_POST["link"], $_POST['song_id']);
+                $song->updateSongs($_POST["artist"], $_POST["track"],  $_POST["link"], $_POST['song_id']);
             }
             header('location: ' . URL . 'songs/index');
         }
