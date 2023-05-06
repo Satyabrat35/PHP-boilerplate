@@ -8,6 +8,6 @@ define('APP', ROOT . 'application' . DIRECTORY_SEPARATOR);
 require ROOT . 'vendor/autoload.php';
 require APP . 'config/config.php';
 
-use Old\Core\Application;
+use Old\Model\Application;
 
 $app = new Application();

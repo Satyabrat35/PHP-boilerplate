@@ -31,6 +31,26 @@ class Application
                     header('location: ' . URL . 'error');
                 }
             }
+        } else {
+            header('location: ' . URL . 'error');
+        }
+    }
+
+    private function splitUrl()
+    {
+        if(isset($_GET['url']))
+        {
+            $url = trim($_GET['url'],'/');
+            $url = filter_var($url, FILTER_SANITIZE_URL);
+            $url = explode('/', $url);
+
+            $this->url_controller = isset($url[0]) ? $url[0] : null;
+            $this->url_action = isset($url[1]) ? $url[1] : null;
+
+            unset($url[0], $url[1]);
+
+            $this->url_params = array_values($url);
+            //var_dump($this->url_controller);
         }
     }
 }

@@ -7,7 +7,11 @@ class SongsController {
     {
         $song = new Song();
         $all_songs = $song->getAllSongs();
-        $total_songs = $song->getAmountOfSongs();
+        $total_songs = $song->getTotalSongs();
+
+        require APP . 'view/templates/header.php';
+        require APP . 'view/songs/index.php';
+        require APP . 'view/templates/footer.php';
     }
 
     public function addSong()
