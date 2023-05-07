@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Songs</h1>
-    <h2>You are in the View: application/view/song/index.php</h2>
+    <h3>You are in the Song view</h3>
     <!-- add song form -->
     <div class="box">
         <h3>Add a song</h3>
@@ -16,8 +16,8 @@
     </div>
     <!-- main content output -->
     <div class="box">
-        <h3>Amount of songs: <?php echo $total_songs; ?></h3>
-        <h3>Amount of songs (via AJAX)</h3>
+        <h3>Total songs: <?php echo $total_songs; ?></h3>
+        <h3>Total songs (via AJAX)</h3>
         <div id="javascript-ajax-result-box"></div>
         <div>
             <button id="javascript-ajax-button">Click here to get the total num of songs </button>
@@ -30,8 +30,8 @@
                 <td>Artist</td>
                 <td>Track</td>
                 <td>Link</td>
-                <td>DELETE</td>
-                <td>EDIT</td>
+                <td>Remove</td>
+<!--                <td>EDIT</td>-->
             </tr>
             </thead>
             <tbody>
@@ -45,8 +45,8 @@
                             <a href="<?php echo htmlspecialchars($song->link, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($song->link, ENT_QUOTES, 'UTF-8'); ?></a>
                         <?php } ?>
                     </td>
-                    <td><a href="<?php echo URL . 'songs/deletesong/' . htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?>">delete</a></td>
-                    <td><a href="<?php echo URL . 'songs/editsong/' . htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?>">edit</a></td>
+                    <td><input type="button" value="Delete" onclick="SomeDeleteRowFunction()"></td>
+<!--                    <td><a href="--><?php //echo URL . 'songs/editsong/' . htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?><!--">edit</a></td>-->
                 </tr>
             <?php } ?>
             </tbody>

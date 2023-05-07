@@ -12,11 +12,13 @@ class Application
         $this->splitUrl();
         if(!$this->url_controller)
         {
-            $page = new \Old\Controller\HomeController();
+            $page = new \Old\Controller\SongsController();
+            //var_dump($page);
             $page->index();
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')){
             $controller = "\\Old\\Controller\\" . ucfirst($this->url_controller) . "Controller";
             $this->url_controller = new $controller();
+
             if (method_exists($this->url_controller, (string)$this->url_action))
             {
                 if(!empty($this->url_params)) {

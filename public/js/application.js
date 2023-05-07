@@ -1,35 +1,19 @@
 $(function() {
-    var demoHeaderBox;
-
-    if ($('#javascript-header-demo-box').length !== 0) {
-    	demoHeaderBox = $('#javascript-header-demo-box');
-    	demoHeaderBox
-    		.hide()
-    		.text('Hello from JavaScript! This line has been added by public/js/application.js')
-    		.css('color', 'green')
-    		.fadeIn('slow');
-    }
-
-    if ($('#javascript-ajax-button').length !== 0) {
-
-        $('#javascript-ajax-button').on('click', function(){
-
-            // "url" is defined in views/_templates/footer.php
-            // console.log(url);
-            $.ajax(url + "SongController/ajaxGetStatus")
-                .done(function(result) {
-                    // this will be executed if the ajax-call was successful
-                    // here we get the feedback from the ajax-call (result) and show it in #javascript-ajax-result-box
-                    $('#javascript-ajax-result-box').html(result);
-                })
-                .fail(function() {
-                    // this will be executed if the ajax-call had failed
-                })
-                .always(function() {
-                    // this will ALWAYS be executed, regardless if the ajax-call was success or not
-                });
+    $('#javascript-ajax-button').on('click', function() {
+        var total_songs = 'total_songs';
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8888/old/Core/ControllerHandler.php',
+            data: {total_songs: total_songs},
+            success: function(result) {
+                $('#javascript-ajax-result-box').html(result);
+            },
+            error: function(qXHR, textStatus, errorThrown) {
+                alert(textStatus, errorThrown);
+            }
         });
-    }
+    });
+
     $('#add_song').on('submit', function(e){
         e.preventDefault();
         var artist = $('#artist').val();
@@ -37,10 +21,11 @@ $(function() {
         var link = $('#link').val();
         $.ajax({
             type: 'POST',
-            url: '../application/Controller/SongsController.php/addSong',
+            url: 'http://localhost:8888/old/Core/ControllerHandler.php',
             data: {artist: artist, track: track, link: link},
-            success: function(response) {
-                alert(response);
+            success: function(result) {
+                // alert(response);
+                window.location.reload();
             },
             error: function(qXHR, textStatus, errorThrown) {
                 alert(textStatus, errorThrown);

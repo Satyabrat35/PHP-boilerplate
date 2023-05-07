@@ -12,7 +12,8 @@
   {
     "psr-4":
     {
-      "Old\\" : "application/"
+      "Old\\" : "application/",
+      "Core\\": "Core/"
     }
   }
 }

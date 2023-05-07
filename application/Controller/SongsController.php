@@ -15,20 +15,16 @@ class SongsController
         require APP . 'view/templates/footer.php';
     }
 
-    public function addSong()
+    public function addSong($artist, $track, $link='')
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        $song = new Song();
+        $artist = trim($artist);
+        $track = trim($track);
+        $link = trim($link);
+        if(!empty($artist) && !empty($track))
         {
-            $song = new Song();
-            $artist = trim($_POST['artist']);
-            $track = trim($_POST['track']);
-            $link = trim($_POST['link']);
-            if(!empty($artist) && !empty($track))
-            {
-                $song->addSongs($artist, $track, $link);
-            }
+            $song->addSongs($artist, $track, $link);
         }
-        header('location: '. URL . 'songs/index'); // change URL
     }
 
     public function deleteSong($id)
@@ -53,10 +49,10 @@ class SongsController
         }
     }
 
-    public function ajaxGetStatus()
+    public function getStatus()
     {
         $song = new Song();
-        $total_songs = $song->getAmountOfSongs();
-        var_dump($total_songs);
+        $total_songs = $song->getTotalSongs();
+        return $total_songs;
     }
 }

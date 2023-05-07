@@ -1,5 +1,7 @@
 <?php
 namespace Old\Model;
+
+require_once '../application/config/config.php';
 use PDO;
 
 class Model
