@@ -6,7 +6,8 @@
     "ext-pdo": "*",
     "ext-mbstring": "*",
     "ext-json": "*",
-    "ext-dom": "*"
+    "ext-dom": "*",
+    "ext-curl": "*"
   },
   "autoload":
   {

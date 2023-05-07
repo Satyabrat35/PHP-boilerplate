@@ -16,5 +16,11 @@ if(isset($_POST))
         $res = $songs->addSong($_POST['artist'], $_POST['track'], $_POST['link']);
         echo $res;
     }
+    elseif (isset($_POST['id']))
+    {
+        $songs = new SongsController();
+        $res = $songs->deleteSong($_POST['id']);
+        echo $res;
+    }
 }
 

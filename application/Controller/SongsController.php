@@ -34,7 +34,7 @@ class SongsController
             $song = new Song();
             $song->deleteSongs($id);
         }
-        header('location: ' . URL . 'songs/index');
+        //header('location: ' . URL . 'songs/index');
     }
 
     public function updateSong($id)
@@ -45,7 +45,7 @@ class SongsController
             {
                 $song->updateSongs($_POST["artist"], $_POST["track"],  $_POST["link"], $_POST['song_id']);
             }
-            header('location: ' . URL . 'songs/index');
+            //header('location: ' . URL . 'songs/index');
         }
     }
 
