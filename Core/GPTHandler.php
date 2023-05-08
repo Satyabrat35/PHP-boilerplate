@@ -20,7 +20,7 @@ $data = array(
             "content" => $query
         )
     ),
-    "max_tokens" => 40,
+    "max_tokens" => 48,
     "temperature" => 0
 );
 

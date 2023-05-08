@@ -26,7 +26,7 @@
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
             <tr>
-                <td>Id</td>
+<!--                <td>Id</td>-->
                 <td>Artist</td>
                 <td>Track</td>
                 <td>Link</td>
@@ -37,7 +37,7 @@
             <tbody>
             <?php foreach ($all_songs as $song) { ?>
                 <tr>
-                    <td id="id"><?php if (isset($song->id)) echo htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?></td>
+<!--                    <td id="id">--><?php //if (isset($song->id)) echo htmlspecialchars($song->id, ENT_QUOTES, 'UTF-8'); ?><!--</td>-->
                     <td><?php if (isset($song->artist)) echo htmlspecialchars($song->artist, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($song->track)) echo htmlspecialchars($song->track, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td>

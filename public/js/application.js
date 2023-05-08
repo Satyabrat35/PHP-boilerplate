@@ -41,7 +41,6 @@ $(function() {
             url: 'http://localhost:8888/old/Core/ControllerHandler.php',
             data: {id: id},
             success: function(result) {
-                //alert(result);
                 window.location.reload();
             },
             error: function(qXHR, textStatus, errorThrown) {
