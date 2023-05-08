@@ -22,6 +22,15 @@ class Song extends Model
         $query->execute($parameters);
     }
 
+    public function deleteSong($song_id)
+    {
+        $statement = "DELETE FROM song WHERE id = :song_id";
+        $query = $this->db->prepare($statement);
+        $parameters = array(':song_id' => $song_id);
+
+        $query->execute($parameters);
+    }
+
     public function getSongs($song_id)
     {
         $statement = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";

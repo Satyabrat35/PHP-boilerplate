@@ -41,8 +41,8 @@ $(function() {
             url: 'http://localhost:8888/old/Core/ControllerHandler.php',
             data: {id: id},
             success: function(result) {
-                alert(result);
-                //window.location.reload();
+                //alert(result);
+                window.location.reload();
             },
             error: function(qXHR, textStatus, errorThrown) {
                 alert(textStatus, errorThrown);
@@ -50,4 +50,20 @@ $(function() {
         });
     });
 
+    $('#chat_gpt').on('submit', function(e){
+        e.preventDefault();
+        var search = $('#search').val();
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8888/old/Core/GPTHandler.php',
+            data: {search: search},
+            success: function(result) {
+                // alert(response);
+                $('#chat-gpt-result-box').html(result);
+            },
+            error: function(qXHR, textStatus, errorThrown) {
+                alert(textStatus, errorThrown);
+            }
+        });
+    });
 });

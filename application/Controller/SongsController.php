@@ -32,7 +32,7 @@ class SongsController
         if(isset($id))
         {
             $song = new Song();
-            $song->deleteSongs($id);
+            $song->deleteSong($id);
         }
         //header('location: ' . URL . 'songs/index');
     }

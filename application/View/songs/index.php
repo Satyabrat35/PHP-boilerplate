@@ -52,4 +52,12 @@
             </tbody>
         </table>
     </div>
+    <div class="box">
+        <h3>Try ChatGPT</h3>
+        <form name="chat_gpt" action="" method="POST" id="chat_gpt">
+            <input type="text" name="search" id="search" value="" placeholder="search" required />
+            <input type="submit" name="submit_chat_gpt" value="Submit" />
+        </form>
+        <div id="chat-gpt-result-box"></div>
+    </div>
 </div>
