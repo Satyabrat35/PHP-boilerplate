@@ -12,7 +12,7 @@ class Application
         $this->splitUrl();
         if(!$this->url_controller)
         {
-            $page = new \Old\Controller\SongsController();
+            $page = new \Old\Controller\HomeController();
             //var_dump($page);
             $page->index();
         } elseif (file_exists(APP . 'Controller/' . ucfirst($this->url_controller) . 'Controller.php')){
@@ -22,7 +22,7 @@ class Application
             if (method_exists($this->url_controller, (string)$this->url_action))
             {
                 if(!empty($this->url_params)) {
-                    call_user_func_array(arrey($this->url_controller, $this->url_action), $this->url_params);
+                    call_user_func_array(array($this->url_controller, $this->url_action), $this->url_params);
                 } else {
                     $this->url_controller->{$this->url_action}();
                 }

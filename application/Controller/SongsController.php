@@ -45,7 +45,6 @@ class SongsController
             {
                 $song->updateSongs($_POST["artist"], $_POST["track"],  $_POST["link"], $_POST['song_id']);
             }
-            //header('location: ' . URL . 'songs/index');
         }
     }
 
